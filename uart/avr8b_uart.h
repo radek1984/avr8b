@@ -46,8 +46,9 @@ extern void avr8b_uart_transmit_complete_isr(void);
 
 /**************** Convenience configuration functions ****************/
 
-// This one turns on the global interrupts flag. Turns on Receiver and Transmitter.
-// Gives you the option to turn on or off rx/tx interrupts
+// This one does NOT turn on the global interrupts flag. You have to enable it by sei().
+// This function turns on Receiver and Transmitter.
+// Gives you the option to turn on or off rx/tx interrupts.
 void avr8b_uart_init(uint8_t rx_int_on_off, uint8_t tx_int_on_off);
 // Shuts down receiver and transmitter as well as tx/rx interrupts
 void avr8b_uart_deinit(void);

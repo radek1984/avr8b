@@ -9,6 +9,7 @@
 #include <util/delay.h>
 #include <string.h>
 #include <stdlib.h>
+#include <avr/interrupt.h>
 
 int16_t error_count = 0;
 void avr8b_uart_receive_complete_isr(int8_t b, uint8_t error)
@@ -32,7 +33,8 @@ void avr8b_uart_transmit_complete_isr(void)
 int main()
 {
 	uint8_t recv;
-	//disable interrupts for now
+	sei();
+	//do not turn on tx/rx interrupts for now
 	avr8b_uart_init(0, 0);
 
 	const char *test1 = "Echo test. Send 10 characters from PC to AVR\r\n";
