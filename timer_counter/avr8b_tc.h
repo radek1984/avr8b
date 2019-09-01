@@ -24,7 +24,7 @@
 #ifdef __AVR_ATmega8535__
 extern void avr8b_tc_oca_isr(uint8_t tc_num);
 extern void avr8b_tc_ocb_isr(uint8_t tc_num);
-extern void avr8b_tc_tov1_isr(uint8_t tc_num);
+extern void avr8b_tc_tov_isr(uint8_t tc_num);
 #endif
 
 /*---------------------- CONFIGURATION END ------------------------------*/
@@ -34,7 +34,9 @@ extern void avr8b_tc_tov1_isr(uint8_t tc_num);
 typedef enum {
 	DIV_BY_1,
 	DIV_BY_8,
+	DIV_BY_32,
 	DIV_BY_64,
+	DIV_BY_128,
 	DIV_BY_256,
 	DIV_BY_1024,
 	DIV_BY_INF //clk is off
@@ -85,7 +87,7 @@ void avr8b_tc_stop(uint8_t tc_num);
 void avr8b_tc_ocra_set(uint8_t tc_num, uint16_t ocra_val);
 void avr8b_tc_ocrb_set(uint8_t tc_num, uint16_t ocrb_val);
 
-// These functions turn on/off output compare interrupts A and and also
+// These functions turn on/off output compare interrupts A and B and also
 // timer counter overflow on selected timer (tc_num)
 void avr8b_tc_oca_int_set(uint8_t tc_num, uint8_t on_off);
 void avr8b_tc_ocb_int_set(uint8_t tc_num, uint8_t on_off);

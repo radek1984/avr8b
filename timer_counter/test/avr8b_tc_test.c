@@ -19,7 +19,7 @@ void avr8b_tc_ocb_isr(uint8_t tc_num)
 
 }
 
-void avr8b_tc_tov1_isr(uint8_t tc_num)
+void avr8b_tc_tov_isr(uint8_t tc_num)
 {
 
 }
