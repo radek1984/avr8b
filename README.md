@@ -1,6 +1,6 @@
 # About the project
 
-This is the set of helper libraries for AVR 8 bit RISC microcontrollers. It is written in C and with thought of being used in Eclipse IDE. Patches and suggestions are warmly welcome.
+This is the set of helper libraries for AVR 8 bit RISC microcontrollers. It is written in C. Patches and suggestions are warmly welcome.
 
 # Supported MCUs
 
@@ -15,6 +15,4 @@ The number of supported devices will grow in time. For now these are on the tabl
   * [avr-libc](https://slackbuilds.org/repository/14.2/libraries/avr-libc/)
   * [avr-gcc](https://slackbuilds.org/repository/14.2/development/avr-gcc/)
   * [avr-gdb](https://slackbuilds.org/repository/14.2/development/avr-gdb/) (optional)
-  * [Eclipse for C/C++](https://www.eclipse.org/downloads)
-  * [AVR plugin for Eclipse](http://avr-eclipse.sourceforge.net/wiki/index.php/The_AVR_Eclipse_Plugin)
 

@@ -48,6 +48,8 @@ ISR(USART_TX_vect, ISR_BLOCK)
 
 void avr8b_uart_deinit(void)
 {
+	loop_until_bit_is_set(UCSRA, UDRE);
+	loop_until_bit_is_set(UCSRA, TXC);
 	//make sure no interrupts will affect deactivation
 	ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
 	{

@@ -11,7 +11,11 @@
 #include <stdlib.h>
 #include <avr/interrupt.h>
 
-int16_t error_count = 0;
+
+//parity odd, 57600, 8b, 1b stop
+
+char err_str[32];
+int error_count = 0;
 void avr8b_uart_receive_complete_isr(int8_t b, uint8_t error)
 {
 	avr8b_uart_write(b);
@@ -50,7 +54,6 @@ int main()
 	for(int i = 0; i < strlen(test1b); i++)
 		avr8b_uart_write(*(test1b + i));
 
-	char err_str[10];
 	itoa(error_count, err_str, 10);
 	for(int i = 0; i < strlen(err_str); i++)
 		avr8b_uart_write(*(err_str + i));
@@ -70,7 +73,7 @@ int main()
 	for(int i = 0; i < strlen(test3); i++)
 		avr8b_uart_write(*(test3 + i));
 
-	//clear rx buffer by turning it of and on again
+	//clear rx buffer by turning it off and on again
 	avr8b_uart_receiver_set(0);
 	avr8b_uart_receiver_set(1);
 	avr8b_uart_rx_int_set(1);
@@ -83,7 +86,7 @@ int main()
 	for(int i = 0; i < strlen(err_str); i++)
 		avr8b_uart_write(*(err_str + i));
 
-	const char *test4 = "\r\nDisabling library for 5 seconds to check if it will initialize properly again. Try to sending something now. \r\n";
+	const char *test4 = "\r\nDisabling library for 5 seconds to check if it will initialize properly again. Try sending something now. \r\n";
 	for(int i = 0; i < strlen(test4); i++)
 		avr8b_uart_write(*(test4 + i));
 
